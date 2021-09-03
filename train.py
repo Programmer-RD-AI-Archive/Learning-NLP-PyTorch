@@ -40,7 +40,7 @@ for patter_sentence, tag in xy:
     y_train.append(label)
 X_train = np.array(X_train)
 y_train = np.array(y_train)
-
+print(y_train)
 
 class ChatDataSet(Dataset):
     def __init__(self):
@@ -72,6 +72,7 @@ criterion = CrossEntropyLoss()
 optimizer = Adam(model.parameters(), lr=0.001)
 for epoch in epochs_iter:
     for words, labels in train_loader:
+        print(labels)
         words = words.to(device)
         labels = labels.to(device)
         preds = model(words)
